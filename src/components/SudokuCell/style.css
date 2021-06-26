@@ -18,16 +18,18 @@
 }
 
 .SudokuCell:hover {
-  background-color: var(--background-main-color-3);
+  background-color: var(--background-main-color-2);
 }
 
-.SudokuCell-col-2, .SudokuCell-col-5 {
+.SudokuCell-col-2,
+.SudokuCell-col-5 {
   border-right: 2px solid darkgray;
 }
-.SudokuCell-lin-2, .SudokuCell-lin-5 {
+.SudokuCell-lin-2,
+.SudokuCell-lin-5 {
   border-bottom: 2px solid darkgray;
 }
 
-.SudokuCell:nth-of-type(50) {
-  background-color: red;
+.SudokuCell-initial {
+  background-color: var(--background-main-color-2);
 }

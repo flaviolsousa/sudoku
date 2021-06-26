@@ -3,13 +3,11 @@ import "./style.css";
 import SudokuCell from "../SudokuCell";
 
 class SudokuMatrix extends Component {
-  cells() {}
-
   render() {
     return (
       <div className="SudokuMatrix">
-        {[...Array(9)].map((c, lin) =>
-          [...Array(9)].map((c, col) => <SudokuCell key={ `${col}x${lin}`} col={col} lin={lin} />)
+        {this.props.data.map((lin) =>
+          lin.map((cell) => <SudokuCell key={cell.i} data={cell} />)
         )}
       </div>
     );

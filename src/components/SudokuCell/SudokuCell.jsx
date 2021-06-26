@@ -1,14 +1,23 @@
-import React, { Component } from 'react';
-import './style.css';
+import React, { Component } from "react";
+import "./style.css";
 
 class SudokuCell extends Component {
-    render() {
-        return (
-            <div className={ `SudokuCell SudokuCell-col-${this.props.col} SudokuCell-lin-${this.props.lin}` }>
-                <span>{this.props.col + 1}</span>
-            </div>
-        );
-    }
+  _classnames() {
+    const cn = [
+      "SudokuCell",
+      `SudokuCell-col-${this.props.data.col}`,
+      `SudokuCell-lin-${this.props.data.lin}`,
+    ];
+    if (!!this.props.data.challenge) cn.push("SudokuCell-initial");
+    return cn.join(" ");
+  }
+  render() {
+    return (
+      <div className={this._classnames()}>
+        <span>{this.props.data.challenge}</span>
+      </div>
+    );
+  }
 }
 
 export default SudokuCell;
