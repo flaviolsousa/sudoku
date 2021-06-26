@@ -1,0 +1,8 @@
+.SudokuMatrix {
+  /* border: 1px solid black; */
+  box-shadow: 0 0 2px gray;
+  width: 90vw;
+  height: 90vw;
+  margin: 0 auto;
+  margin-top: 5vw;
+}

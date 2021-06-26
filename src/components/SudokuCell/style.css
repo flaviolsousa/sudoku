@@ -1,0 +1,33 @@
+.SudokuCell {
+  display: flex;
+  width: calc((100% - 11px) / 9);
+  height: calc((100% - 11px) / 9);
+  float: left;
+  border-right: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  text-align: center;
+  justify-content: center;
+  vertical-align: middle;
+  font-style: oblique;
+  font-size: 5vw;
+}
+
+.SudokuCell span {
+  margin: auto;
+  top: 50%;
+}
+
+.SudokuCell:hover {
+  background-color: var(--background-main-color-3);
+}
+
+.SudokuCell-col-2, .SudokuCell-col-5 {
+  border-right: 2px solid darkgray;
+}
+.SudokuCell-lin-2, .SudokuCell-lin-5 {
+  border-bottom: 2px solid darkgray;
+}
+
+.SudokuCell:nth-of-type(50) {
+  background-color: red;
+}
