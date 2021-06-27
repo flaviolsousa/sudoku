@@ -1,6 +1,6 @@
 import Sudoku from "./container/Sudoku";
 
-import "./style.css";
+import "./assets/style.css";
 
 function App() {
   return (

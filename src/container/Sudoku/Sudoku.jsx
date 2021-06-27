@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+
 import "./style.css";
 import SudokuMatrix from "../../components/SudokuMatrix";
 import sudokuService from "../../services/sudokuService";
+import SudokuNumbers from "../../components/SudokuNumbers";
 
 class Sudoku extends Component {
   constructor() {
@@ -46,6 +48,7 @@ class Sudoku extends Component {
     return (
       <div className="Sudoku">
         <SudokuMatrix data={this.state.data} />
+        <SudokuNumbers data={this.state.data} />
         {this._generateLevels()}
       </div>
     );

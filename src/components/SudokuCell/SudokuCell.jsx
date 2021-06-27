@@ -8,13 +8,17 @@ class SudokuCell extends Component {
       `SudokuCell-col-${this.props.data.col}`,
       `SudokuCell-lin-${this.props.data.lin}`,
     ];
-    if (!!this.props.data.challenge) cn.push("SudokuCell-initial");
+    if (this.props.data.locked) cn.push("SudokuCell-locked");
+    else cn.push("SudokuCell-editable");
+
+    if (this.props.data.value === ".") cn.push("SudokuCell-empty");
+
     return cn.join(" ");
   }
   render() {
     return (
       <div className={this._classnames()}>
-        <span>{this.props.data.challenge}</span>
+        <span>{this.props.data.value}</span>
       </div>
     );
   }

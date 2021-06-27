@@ -21,11 +21,10 @@ class SudokuService {
     const challenge = sudoku.generator.generate(level);
     const solution = sudoku.solver.solve(challenge);
 
-    sudoku.instance.print_board(challenge);
-    sudoku.instance.print_board(solution);
-
-    // const aChallenge = [...sudoku.generator.generate(level)];
-    // const aSolution = [...sudoku.solver.solve(challenge)];
+    console.log(challenge);
+    console.log(solution);
+    // sudoku.instance.print_board(challenge);
+    // sudoku.instance.print_board(solution);
 
     const width = 9;
     const data = [];
@@ -37,17 +36,14 @@ class SudokuService {
           lin,
           col,
           i,
-          challenge: challenge[i].replace(".", ""),
+          locked: challenge[i] !== ".",
+          value: challenge[i],
           solution: solution[i],
         });
       }
     }
 
-    // const data = {
-    //   challenge: sudokuLineToData(challenge),
-    //   solution: sudokuLineToData(solution),
-    // };
-    console.log(data);
+    // console.log(data);
 
     return data;
   }
