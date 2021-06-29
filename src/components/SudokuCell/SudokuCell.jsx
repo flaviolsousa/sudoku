@@ -1,27 +1,29 @@
-import React, { Component } from "react";
+import React from "react";
+import classnames from "classnames";
+
 import "./style.css";
 
-class SudokuCell extends Component {
-  _classnames() {
-    const cn = [
-      "SudokuCell",
-      `SudokuCell-col-${this.props.data.col}`,
-      `SudokuCell-lin-${this.props.data.lin}`,
-    ];
-    if (this.props.data.locked) cn.push("SudokuCell-locked");
-    else cn.push("SudokuCell-editable");
-
-    if (this.props.data.value === ".") cn.push("SudokuCell-empty");
-
-    return cn.join(" ");
-  }
-  render() {
-    return (
-      <div className={this._classnames()}>
-        <span>{this.props.data.value}</span>
-      </div>
-    );
-  }
+function SudokuCell(props) {
+  return (
+    <div
+      className={classnames(
+        "SudokuCell",
+        `SudokuCell-col-${props.cell.col}`,
+        `SudokuCell-lin-${props.cell.lin}`,
+        {
+          "SudokuCell-locked": props.cell.locked,
+          "SudokuCell-editable": !props.cell.locked,
+          "SudokuCell-empty": props.cell.value === ".",
+          "SudokuCell-not-empty": props.cell.value !== ".",
+          "SudokuCell-number-selected":
+            props.cell.value === props.model.control.selected,
+        }
+      )}
+      onClick={() => props.cellClicked(props.cell)}
+    >
+      <span>{props.cell.value}</span>
+    </div>
+  );
 }
 
 export default SudokuCell;

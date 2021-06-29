@@ -15,6 +15,8 @@
   --background-main-color-3: var(--color-pewter);
   --background-main-color-4: var(--color-gray);
 
+  --evidence-1: var(--color-safety-yellow);
+
   --labels: #000;
 }
 @import url(./fonts.css);

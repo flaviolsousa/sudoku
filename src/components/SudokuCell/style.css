@@ -17,10 +17,6 @@
   margin: auto;
 }
 
-.SudokuCell:hover {
-  background-color: var(--background-main-color-2);
-}
-
 .SudokuCell-col-0 {
   clear: both;
 }
@@ -36,8 +32,13 @@
 
 .SudokuCell-locked {
   background-color: var(--background-main-color-2);
-  /* font-weight: 500; */
 }
 .SudokuCell-empty {
   color: var(--background-main-color-1);
+}
+.SudokuCell-editable.SudokuCell-not-empty {
+  font-style: italic;
+}
+.SudokuCell-number-selected {
+  background-color: var(--evidence-1);
 }

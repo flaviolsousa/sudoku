@@ -1,33 +1,39 @@
-import React, { Component } from "react";
+import React from "react";
+import classnames from "classnames";
+
 import "./style.css";
 
-class SudokuNumbers extends Component {
-  _remainingNumbers(n) {
+function SudokuNumbers(props) {
+  const remainingNumbers = (n) => {
     return (
       9 -
-      this.props.data.reduce(
+      props.model.matrix.reduce(
         (a, line) => a + line.filter((v) => v.value === "" + n).length,
         0
       )
     );
-  }
+  };
 
-  _createNumber(n) {
+  const createNumber = (n) => {
     return (
-      <div className={`SudokuNumber SudokuNumber-${n}`} key={n}>
+      <div
+        className={classnames("SudokuNumber", `SudokuNumber-${n}`, {
+          "SudokuNumber-selected": props.model.control.selected === n,
+        })}
+        key={n}
+        onClick={() => props.numberClicked(n)}
+      >
         <span>{n}</span>
-        <sub>{this._remainingNumbers(n)}</sub>
+        <sub>{remainingNumbers(n)}</sub>
       </div>
     );
-  }
-
-  render() {
-    return (
-      <div className="SudokuNumbers">
-        {[...Array(9).keys()].map((o) => this._createNumber(o + 1))}
-      </div>
-    );
-  }
+  };
+  console.log("SudokuNumber re-render");
+  return (
+    <div className="SudokuNumbers">
+      {[...Array(9).keys()].map((o) => createNumber(`${o + 1}`))}
+    </div>
+  );
 }
 
 export default SudokuNumbers;
