@@ -1,6 +1,6 @@
 .SudokuMatrix {
   /* border: 1px solid black; */
-  box-shadow: 0 0 2px gray;
+  box-shadow: 0 0 2px var(--background-main-color-4);
   width: 90vw;
   height: 90vw;
   margin: 0 auto;
