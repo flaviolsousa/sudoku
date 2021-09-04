@@ -23,13 +23,14 @@
   margin-right: 1vw;
   padding-top: 1vw;
   padding-bottom: 1vw;
+}
+.SudokuNumber:not(.SudokuNumber-finished) {
   border: 1px solid lightgray;
   box-shadow: 0 0 2px gray;
 }
 .SudokuNumber-9 {
   margin-right: 0vw;
 }
-
 .SudokuNumber span {
   width: 3vw;
   text-align: center;
@@ -40,6 +41,11 @@
   width: 6vw;
   position: absolute;
 }
-.SudokuNumber-selected {
+.SudokuNumber-selected:not(.SudokuNumber-finished) {
   background-color: var(--background-main-color-2);
+}
+
+.SudokuNumber-finished {
+  color: var(--background-main-color-1);
+  border: 1px solid var(--background-main-color-1);
 }

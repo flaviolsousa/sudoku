@@ -36,17 +36,16 @@
 .SudokuCell-empty {
   color: var(--background-main-color-1);
 }
-.SudokuCell-error {
-  /* .SudokuCell-editable.SudokuCell-not-empty { */
-  background-color: var(--background-error);
-  font-style: italic;
-  color: var(--evidence-error);
-}
-/* .SudokuCell-error { */
-.SudokuCell-editable.SudokuCell-not-empty {
+.SudokuCell-n-locked.SudokuCell-not-empty {
   font-style: italic;
   color: var(--evidence-3);
 }
 .SudokuCell-number-selected {
   background-color: var(--evidence-1);
+}
+
+.SudokuCell-error {
+  background-color: var(--background-error);
+  font-style: italic;
+  color: var(--evidence-error) !important;
 }

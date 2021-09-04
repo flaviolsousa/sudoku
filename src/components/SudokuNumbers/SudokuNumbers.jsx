@@ -1,38 +1,46 @@
 import React from "react";
 import classnames from "classnames";
+import { useSudokuContext } from "../../contexts/SudokuContext";
 
 import "./style.css";
 
-function SudokuNumbers(props) {
-  const remainingNumbers = (n) => {
-    return (
-      9 -
-      props.model.matrix.reduce(
-        (a, line) => a + line.filter((v) => v.value === "" + n).length,
-        0
-      )
-    );
-  };
+const remainingNumbers = (model, n) => {
+  return (
+    9 -
+    model.reduce(
+      (a, line) => a + line.filter((v) => v.value === "" + n).length,
+      0
+    )
+  );
+};
 
-  const createNumber = (n) => {
+function SudokuNumbers() {
+  const {
+    state: { numbers, model, control },
+    dispatch,
+  } = useSudokuContext();
+
+  function createNumber(n) {
+    const r = remainingNumbers(model, n);
     return (
       <div
         className={classnames("SudokuNumber", `SudokuNumber-${n}`, {
-          "SudokuNumber-selected": props.model.control.selected === n,
+          "SudokuNumber-selected": control.selected === n,
+          "SudokuNumber-finished": r === 0,
         })}
         key={n}
-        onClick={() => props.numberClicked(n)}
+        onClick={() =>
+          dispatch({ type: "number/clicked", payload: { number: n } })
+        }
       >
         <span>{n}</span>
-        <sub>{remainingNumbers(n)}</sub>
+        <sub>{r}</sub>
       </div>
     );
-  };
-  console.log("SudokuNumber re-render");
+  }
+
   return (
-    <div className="SudokuNumbers">
-      {[...Array(9).keys()].map((o) => createNumber(`${o + 1}`))}
-    </div>
+    <div className="SudokuNumbers">{numbers.map((n) => createNumber(n))}</div>
   );
 }
 

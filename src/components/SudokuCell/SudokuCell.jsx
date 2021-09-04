@@ -1,9 +1,15 @@
 import React from "react";
 import classnames from "classnames";
+import { useSudokuContext } from "../../contexts/SudokuContext";
 
 import "./style.css";
 
 function SudokuCell(props) {
+  const {
+    state: { control },
+    dispatch,
+  } = useSudokuContext();
+
   return (
     <div
       className={classnames(
@@ -12,14 +18,16 @@ function SudokuCell(props) {
         `SudokuCell-lin-${props.cell.lin}`,
         {
           "SudokuCell-locked": props.cell.locked,
-          "SudokuCell-editable": !props.cell.locked,
+          "SudokuCell-n-locked": !props.cell.locked,
+          "SudokuCell-error": props.cell.error,
           "SudokuCell-empty": props.cell.value === ".",
           "SudokuCell-not-empty": props.cell.value !== ".",
-          "SudokuCell-number-selected":
-            props.cell.value === props.model.control.selected,
+          "SudokuCell-number-selected": props.cell.value === control.selected,
         }
       )}
-      onClick={() => props.cellClicked(props.cell)}
+      onClick={() =>
+        dispatch({ type: "cell/clicked", payload: { cell: props.cell } })
+      }
     >
       <span>{props.cell.value}</span>
     </div>
