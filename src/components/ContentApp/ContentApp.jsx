@@ -4,11 +4,19 @@ import useWindowDimensions from "../../hooks/useWindowDimensions";
 import "./style.css";
 
 function ContentApp(props) {
-  const { height, width } = useWindowDimensions();
+  let { height, width } = useWindowDimensions();
+  const factor = 0.65;
+  if (width > height * factor) width = height * factor;
 
   return (
-    <div className="content-app">
-      width: {width} ~ height: {height}
+    <div
+      style={{
+        "--width": width + "px",
+        "--height": height + "px",
+        fontSize: width / 15 + "px",
+      }}
+      className="content-app"
+    >
       {props.children}
     </div>
   );

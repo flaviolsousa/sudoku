@@ -1,16 +1,16 @@
 .SudokuCell {
   border-right: 1px solid var(--background-main-color-3);
   border-bottom: 1px solid var(--background-main-color-3);
+  box-sizing: border-box;
 
   display: flex;
   flex: 1 1 auto;
-  width: 10%;
+  width: calc(100% / 9);
+  height: calc(100% / 9);
 
   text-align: center;
   justify-content: center;
   vertical-align: middle;
-
-  font-size: 6vw;
 }
 
 .SudokuCell span {
@@ -30,8 +30,22 @@
   border-bottom: 2px solid var(--background-main-color-3);
 }
 
+@supports (-moz-appearance: none) {
+  .SudokuCell {
+    height: calc(100% / 8.999);
+  }
+  .SudokuCell-col-2,
+  .SudokuCell-col-5 {
+    border-right: 3px solid var(--background-main-color-3);
+  }
+  .SudokuCell-lin-2,
+  .SudokuCell-lin-5 {
+    border-bottom: 3px solid var(--background-main-color-3);
+  }
+}
+
 .SudokuCell-locked {
-  background-color: var(--background-main-color-2);
+  background-color: var(--background-main-color-1);
 }
 .SudokuCell-empty {
   color: var(--background-main-color-1);
@@ -51,7 +65,7 @@
   color: var(--evidence-error) !important;
   animation-name: error-bounce;
   animation-duration: 3s;
-  animation-delay: 0.25s;
+  animation-delay: 0.1s;
 }
 
 @keyframes error-bounce {
@@ -98,8 +112,8 @@
     timing-function: ease-in;
   }
   100% {
-    background-color: var(--background-main-color-2);
-    color: var(--background-main-color-2);
+    background-color: var(--background-main-color-1);
+    color: var(--background-main-color-1s);
     timing-function: ease-out;
   }
 }

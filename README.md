@@ -1,6 +1,8 @@
 # sudoku
 
-My first app react-js
+My first react-js app
+
+[Demo](https://flaviolsousa.github.io/sudoku/)
 
 ## Reference Projects
 
