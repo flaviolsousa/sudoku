@@ -19,6 +19,16 @@ const numberFirst = {
 
     return { ...state, model };
   },
+
+  cellErrorFinished: ({ state, action }) => {
+    const cell = action.payload.cell;
+    const model = [...state.model];
+
+    model[cell.lin][cell.col] = { ...cell, editable: true, error: null };
+
+    return { ...state, model };
+  },
+
   numberClicked: ({ state, action }) => {
     return {
       ...state,
@@ -48,6 +58,10 @@ const control = {
 
   numberClicked: ({ state, action }) => {
     return strategies[state.control.mode].numberClicked({ state, action });
+  },
+
+  cellErrorFinished: ({ state, action }) => {
+    return strategies[state.control.mode].cellErrorFinished({ state, action });
   },
 };
 

@@ -42,10 +42,99 @@
 }
 .SudokuCell-number-selected {
   background-color: var(--evidence-1);
+  transition: all 0.3s ease;
 }
 
 .SudokuCell-error {
   background-color: var(--background-error);
   font-style: italic;
   color: var(--evidence-error) !important;
+  animation-name: error-bounce;
+  animation-duration: 3s;
+  animation-delay: 0.25s;
+}
+
+@keyframes error-bounce {
+  0% {
+    /* 0% */
+    transform: rotate(0deg);
+    timing-function: ease-in;
+  }
+  12% {
+    /* 37% */
+    transform: rotate(5deg);
+    timing-function: ease-out;
+  }
+  18% {
+    /* 55% */
+    transform: rotate(-5deg);
+    timing-function: ease-in;
+  }
+  24% {
+    /* 73% */
+    transform: rotate(4deg);
+    timing-function: ease-out;
+  }
+  27% {
+    /* 82% */
+    transform: rotate(-4deg);
+    timing-function: ease-in;
+  }
+  30% {
+    /* 91% */
+    transform: rotate(2deg);
+    timing-function: ease-out;
+  }
+  32% {
+    /* 96% */
+    transform: rotate(-2deg);
+    timing-function: ease-in;
+  }
+  33% {
+    /* 100% */
+    transform: rotate(0deg);
+    background-color: var(--background-error);
+    color: var(--evidence-error);
+    timing-function: ease-in;
+  }
+  100% {
+    background-color: var(--background-main-color-2);
+    color: var(--background-main-color-2);
+    timing-function: ease-out;
+  }
+}
+
+@keyframes horizontal-bounce {
+  0% {
+    transform: translateX(0px);
+    timing-function: ease-in;
+  }
+  37% {
+    transform: translateX(5px);
+    timing-function: ease-out;
+  }
+  55% {
+    transform: translateX(-5px);
+    timing-function: ease-in;
+  }
+  73% {
+    transform: translateX(4px);
+    timing-function: ease-out;
+  }
+  82% {
+    transform: translateX(-4px);
+    timing-function: ease-in;
+  }
+  91% {
+    transform: translateX(2px);
+    timing-function: ease-out;
+  }
+  96% {
+    transform: translateX(-2px);
+    timing-function: ease-in;
+  }
+  100% {
+    transform: translateX(0px);
+    timing-function: ease-in;
+  }
 }

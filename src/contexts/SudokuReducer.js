@@ -5,6 +5,9 @@ const reducer = (state, action) => {
     case "cell/clicked": {
       return handler.cellClicked({ state, action });
     }
+    case "cell/error-finished": {
+      return handler.cellErrorFinished({ state, action });
+    }
     case "number/clicked": {
       return handler.numberClicked({ state, action });
     }

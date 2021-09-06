@@ -3,7 +3,7 @@
   --color-green-blue-crayola: #008dd5;
 
   --color-baby-powder: #fdfffc;
-  --color-ivory: #eeede7;
+  --color-ivory: #f7f6f2;
   --color-pewter: #b9b7bd;
   --color-gray: #868b8e;
 
@@ -11,7 +11,7 @@
   --color-safety-yellow: #fdff88;
 
   --background-main-color-1: var(--color-baby-powder);
-  --background-main-color-2: var(--color-ivory);
+  --background-main-color-2: var(--color-baby-powder);
   --background-main-color-3: var(--color-pewter);
   --background-main-color-4: var(--color-gray);
 
@@ -21,7 +21,7 @@
   --evidence-4: var(--color-green-blue-crayola);
 
   --background-error: var(--color-fire-engine-red);
-  --evidence-error: var(--color-ivory);
+  --evidence-error: var(--color-baby-powder);
 
   --labels: #000;
 }

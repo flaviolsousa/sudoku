@@ -9,27 +9,30 @@ function SudokuCell(props) {
     state: { control },
     dispatch,
   } = useSudokuContext();
-
+  const cell = props.cell;
   return (
     <div
       className={classnames(
         "SudokuCell",
-        `SudokuCell-col-${props.cell.col}`,
-        `SudokuCell-lin-${props.cell.lin}`,
+        `SudokuCell-col-${cell.col}`,
+        `SudokuCell-lin-${cell.lin}`,
         {
-          "SudokuCell-locked": props.cell.locked,
-          "SudokuCell-n-locked": !props.cell.locked,
-          "SudokuCell-error": props.cell.error,
-          "SudokuCell-empty": props.cell.value === ".",
-          "SudokuCell-not-empty": props.cell.value !== ".",
-          "SudokuCell-number-selected": props.cell.value === control.selected,
+          "SudokuCell-locked": cell.locked,
+          "SudokuCell-n-locked": !cell.locked,
+          "SudokuCell-error": !!cell.error,
+          "SudokuCell-empty": cell.value === ".",
+          "SudokuCell-not-empty": cell.value !== ".",
+          "SudokuCell-number-selected": cell.value === control.selected,
         }
       )}
       onClick={() =>
         dispatch({ type: "cell/clicked", payload: { cell: props.cell } })
       }
+      onAnimationEnd={() =>
+        dispatch({ type: "cell/error-finished", payload: { cell: props.cell } })
+      }
     >
-      <span>{props.cell.value}</span>
+      <span>{cell.error || cell.value}</span>
     </div>
   );
 }

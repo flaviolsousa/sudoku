@@ -66,8 +66,8 @@ const setOnCell = (model, cell, value) => {
 
   // return _modelsEquals(newChallenge, solution)
   return solution
-    ? { ...cell, value, error: false, editable: true }
-    : { ...cell, value, error: true, editable: false };
+    ? { ...cell, value, error: null, editable: true }
+    : { ...cell, value: ".", error: value, editable: false };
 };
 
 export const service = {
