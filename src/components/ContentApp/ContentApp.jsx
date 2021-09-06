@@ -5,6 +5,7 @@ import "./style.css";
 
 function ContentApp(props) {
   const { height, width } = useWindowDimensions();
+
   return (
     <div className="content-app">
       width: {width} ~ height: {height}
