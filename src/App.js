@@ -1,4 +1,4 @@
-import Sudoku from "./container/Sudoku";
+import Sudoku from "./components/Sudoku";
 import ContentApp from "./components/ContentApp/ContentApp";
 
 import "./assets/style.css";

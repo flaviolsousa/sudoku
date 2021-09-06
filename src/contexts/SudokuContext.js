@@ -7,7 +7,10 @@ const SudokuContext = createContext();
 const initialState = {
   model: service.get({ level: "EASY" }),
   numbers: [...Array(9).keys()].map((o) => "" + (o + 1)),
-  level: "EASY",
+  levels: {
+    selected: "EASY",
+    options: ["EASY", "MEDIUM", "HARD", "VERY_HARD", "INSANE", "INHUMAN"],
+  },
   control: {
     mode: "numberFirst",
   },

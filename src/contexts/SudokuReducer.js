@@ -1,4 +1,5 @@
 import handler from "./SudokuHandler";
+import service from "../services/sudokuService";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -12,11 +13,13 @@ const reducer = (state, action) => {
       return handler.numberClicked({ state, action });
     }
     case "level/clicked": {
-      console.log("##### level/clicked");
       return {
         ...state,
-        level: action.payload,
-        model: handler.get(action.payload),
+        levels: {
+          ...state.levels,
+          selected: action.payload.level,
+        },
+        model: service.get(action.payload),
       };
     }
     default:
@@ -25,7 +28,7 @@ const reducer = (state, action) => {
 };
 
 const reducerAudit = (state, action) => {
-  // console.log("event IN : state", state, " action", action);
+  console.log("event IN : state", state, " action", action);
   const s = reducer(state, action);
   console.log("event OUT: state", state);
   return s;
