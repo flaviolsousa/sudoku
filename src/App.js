@@ -1,11 +1,14 @@
 import Sudoku from "./container/Sudoku";
+import ContentApp from "./components/ContentApp/ContentApp";
 
 import "./assets/style.css";
 
 function App() {
   return (
     <div className="App">
-      <Sudoku />
+      <ContentApp>
+        <Sudoku />
+      </ContentApp>
     </div>
   );
 }
