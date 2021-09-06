@@ -18,7 +18,7 @@
   justify-content: center;
   vertical-align: middle;
 
-  font-size: 4.5vw;
+  font-size: 6vw;
 
   margin-right: 1vw;
   padding-top: 1vw;
@@ -34,9 +34,10 @@
 .SudokuNumber span {
   width: 3vw;
   text-align: center;
+  margin-left: -1vw;
 }
 .SudokuNumber sub {
-  font-size: 1.5vw;
+  font-size: 2.5vw;
   text-align: right;
   width: 6vw;
   position: absolute;
