@@ -20,7 +20,7 @@ function SudokuMatrix(props) {
             model={model}
             control={control}
             cellClicked={() =>
-              dispatch({ type: "cell/clickeds", payload: cell })
+              dispatch({ type: "cell/clicked", payload: cell })
             }
           />
         ))
