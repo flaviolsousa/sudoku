@@ -1,6 +1,6 @@
 import Sudoku from "./components/Sudoku";
 import ContentApp from "./components/ContentApp/ContentApp";
-import { MemoryRouter as Router, Switch, Route } from "react-router-dom";
+import { MemoryRouter as Router, Route } from "react-router-dom";
 import SplashScreen from "./components/SplashScreen/SplashScreen";
 import PageTransition from "./components/PageTransition/PageTransition";
 
