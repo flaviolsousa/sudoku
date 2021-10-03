@@ -12,7 +12,7 @@ function SplashScreen() {
     <Redirect to="/game" />
   ) : (
     <div className="SplashScreen">
-      <h1>Hello Sudoku</h1>
+      <h1>Hello Sudoku!</h1>
       {/* <Badge color="primary">primary</Badge> */}
     </div>
   );
